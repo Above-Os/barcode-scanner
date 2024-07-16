@@ -317,7 +317,7 @@ public class BarcodeScanner: CAPPlugin, AVCaptureMetadataOutputObjectsDelegate {
                 }
             }
 
-            DispatchQueue.main.async {
+            DispatchQueue.global(qos: .background).async {
                 self.metaOutput!.metadataObjectTypes = self.targetedFormats
                 self.captureSession!.startRunning()
             }
